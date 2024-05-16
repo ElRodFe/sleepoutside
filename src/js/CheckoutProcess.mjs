@@ -1,4 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs"
+
+const externalServices = new ExternalServices();
 
 export default class CheckoutProcess {
     constructor(key, htmlElement) {
@@ -49,7 +52,48 @@ export default class CheckoutProcess {
         this.htmlElement.appendChild(t);
         this.htmlElement.appendChild(ot);
     }
+
+    async checkout() {
+        const form = document.forms["checkout-form"];
+
+        const json = formDataToJson(form);
+
+        json.orderDate = new Date();
+        json.subtotal = this.subtotal;
+        json.shipping = this.shipping;
+        json.tax = this.tax;
+        json.orderTotal = this.orderTotal;
+        json.items = packageItems(this.cartItems);
+
+        try {
+            const response = await externalServices.checkOut(json);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
-const checkOut = new CheckoutProcess("so-cart", ".orderSummary");
-checkOut.init();
+function packageItems(items) {
+    const simplerItems = items.map((item) => {
+        return {
+            id: item.Id,
+            price: item.FinalPrice,
+            name: item.Name,
+            quantity: item.quantity,
+        };
+
+        return simplerItems;
+    })
+}
+
+function formDataToJson(formElement) {
+    const formData = new FormData(formElement),
+        convertedJSON = {};
+
+    formData.forEach(function (value, key) {
+        convertedJSON[key] = value;
+    });
+
+    return convertedJSON;
+}
