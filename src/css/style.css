@@ -237,7 +237,7 @@ button {
   grid-row: 1;
   grid-column: 4;
 }
-.cart-card__total{
+.cart-card__total {
   grid-row: 2;
   grid-column: 4;
 }
