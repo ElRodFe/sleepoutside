@@ -10,5 +10,14 @@ const submitButton = document.querySelector("#submitButton");
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    checkOut.checkout();
+    const form = document.forms["checkout-form"];
+    const formValidity = form.checkValidity();
+    form.reportValidity();
+
+    if (formValidity) {
+        checkOut.checkout();
+        location.assign("/checkout/success.html");
+        localStorage.clear();
+    }
 });
+
