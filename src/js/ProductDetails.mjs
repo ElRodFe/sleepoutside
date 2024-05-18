@@ -41,6 +41,7 @@ export default class ProductDetails {
 
         setLocalStorage("so-cart", productsList);
         numberOfItemsIcon();
+        animateElement(".cart");
     }
 
     renderProductDetails(selector) {
@@ -65,4 +66,15 @@ function productDetailsTemplate(product) {
       <div class="product-detail__add">
         <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
       </div></section>`;
+}
+
+function animateElement(element){
+    const animated = document.querySelector(element);
+        setTimeout(()=>{
+            animated.classList.add("added");
+        },1000);
+        setTimeout(()=>{
+            animated.classList.remove("added");
+        },4000);
+
 }
