@@ -32,6 +32,8 @@ export default class ShoppingCart {
       const p = document.createElement("p");
       p.textContent = "No items yet";
       document.querySelector(".product-list").appendChild(p);
+      const checkoutButton = document.querySelector(".checkout-button");
+      checkoutButton.classList.add("hide");
     } else {
       const htmlItems = cartItems.map((item) => cartItemTemplate(item));
       document.querySelector(this.htmlElement).innerHTML = htmlItems.join("");
@@ -39,10 +41,12 @@ export default class ShoppingCart {
       const cartTotal = document.querySelector(".cart-total");
       let totalPrice = 0;
       cartItems.forEach((item) => {
-        totalPrice += item.FinalPrice
+        totalPrice += item.totalPrice
       });
       cartTotal.textContent = `Total: $${totalPrice}`;
       document.querySelector(".cart-footer-hide").style.display = "block";
+      const checkoutButton = document.querySelector(".checkout-button");
+      checkoutButton.classList.remove("hide");
 
     }
   }

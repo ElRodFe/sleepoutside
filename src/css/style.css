@@ -237,7 +237,7 @@ button {
   grid-row: 1;
   grid-column: 4;
 }
-.cart-card__total{
+.cart-card__total {
   grid-row: 2;
   grid-column: 4;
 }
@@ -270,6 +270,101 @@ button {
   display: none;
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.checkout-button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem 0;
+  text-decoration: none;
+}
+.hide {
+  display: none;
+}
+
+.form {
+  display: flex;
+}
+
+form {
+  grid-column: 1/2;
+  width: 100%;
+  margin: auto 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+fieldset {
+  border-color: var(--primary-color);
+  margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+input[type="month"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.orderSummary {
+  margin: 1.5rem 3rem 40rem 3rem;
+  width: 90%;
+  border: 0.15rem solid var(--primary-color);
+  padding: 0 2rem 2rem;
+  font-size: 1.2rem;
+}
+
+.orderSummary h3 {
+  padding: 0;
+  padding-bottom: 2rem;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  padding: 0 1rem;
+  font-weight: bold;
+}
+
+.alert span {
+  cursor: pointer;
+}
+
+.added{
+  animation: cartAnimation .5s;
+}
+
+@keyframes cartAnimation {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(2px, -2px); }
+  30% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, 2px); }
+  50% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, -2px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, 2px); }
+  90% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0, 0); }
 }
 
 @media screen and (min-width: 500px) {
