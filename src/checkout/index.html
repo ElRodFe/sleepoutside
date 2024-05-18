@@ -8,7 +8,9 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <script type="module" src="../js/checkout.js"></script>
   </head>
 
   <body>
@@ -18,8 +20,33 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <div class="form">
+        <form name="checkout-form" class="checkout-form">
+          <fieldset class="fieldset">
+            <legend>Personal Info</legend>
+            <label>First Name: <input type="text" name="fname" id="fname" required></label>
+            <label>Last Name: <input type="text" name="lname" id="lname" required></label>
+            <label>Street: <input type="text" name="street" id="street" required></label>
+            <label>City:<input type="text" id="city" name="city" required></label>
+            <label>State: <input type="text" name="state" id="state" required></label>
+            <label>Zip Code: <input type="number" name="zip" id="zip" required></label>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Payment Info</legend>
+            <label>Credit Card: <input type="number" name="cardNumber" id="cardNumber" required pattern="\d{16}"></label>
+            <label>Expiration Date: <input type="text" name="expiration" id="expiration" required pattern="\d{2}/\d{2}"></label>
+            <label>Security Code: <input type="number" name="code" id="code" required pattern="\d{3}"></label>
+          </fieldset>
+          <input type="submit" id="submitButton" value="Checkout">
+        </form>
+        
+        <div class="orderSummary">
+          <h3>Order Summary</h3>
+        </div>
+      </div>
+      
     </main>
 
-    <footer id="footer"></footer>
+    <footer id="main-footer"></footer>
   </body>
 </html>

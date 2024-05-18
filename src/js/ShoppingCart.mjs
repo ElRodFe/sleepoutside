@@ -39,7 +39,7 @@ export default class ShoppingCart {
       const cartTotal = document.querySelector(".cart-total");
       let totalPrice = 0;
       cartItems.forEach((item) => {
-        totalPrice += item.FinalPrice
+        totalPrice += item.totalPrice
       });
       cartTotal.textContent = `Total: $${totalPrice}`;
       document.querySelector(".cart-footer-hide").style.display = "block";

@@ -34,7 +34,7 @@ export default class ProductDetails {
             productsList.push(this.product);
         } else {
             productsList[existingProductIndex].quantity += 1;
-            this.product.totalPrice = this.product.FinalPrice * this.product.quantity;
+            productsList[existingProductIndex].totalPrice =  productsList[existingProductIndex].FinalPrice *  productsList[existingProductIndex].quantity;
         }
 
         setLocalStorage("so-cart", productsList);

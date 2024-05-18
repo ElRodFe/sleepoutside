@@ -272,6 +272,57 @@ button {
   font-size: 1.5rem;
 }
 
+.form{
+  display: flex;
+}
+
+form {
+  grid-column: 1/2;
+  width: 100%;
+  margin: auto 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+fieldset {
+  border-color: var(--primary-color);
+  margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+input[type="month"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.orderSummary{
+  margin: 1.5rem 3rem 40rem 3rem;
+  width: 90%;
+  border: .15rem solid var(--primary-color);
+  padding: 0 2rem 2rem;
+  font-size: 1.2rem;
+}
+
+.orderSummary h3{
+  padding: 0;
+  padding-bottom: 2rem;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
