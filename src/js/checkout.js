@@ -1,5 +1,5 @@
 import CheckoutProcess from "./CheckoutProcess.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, alertMessage, removeAllAlerts } from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -13,8 +13,19 @@ submitButton.addEventListener("click", (e) => {
   const chk_status = myForm.checkValidity();
   myForm.reportValidity();
   if (chk_status) {
+    removeAllAlerts();
     checkOut.checkout();
     location.assign("/checkout/success.html");
     localStorage.clear();
+  }
+  else{
+    removeAllAlerts();
+    const invalidMessage = Array.from(myForm.querySelectorAll(":invalid"));
+    invalidMessage.forEach((invalidField)=>{
+      if(invalidField.tagName === "INPUT"){
+        const message = invalidField.labels[0].textContent;
+        alertMessage(`Invalid ${message}`);
+      }
+    })
   }
 });
