@@ -1,4 +1,4 @@
-import { numberOfItemsIcon, setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { numberOfItemsIcon, setLocalStorage, getLocalStorage, alertMessage } from "./utils.mjs";
 
 export default class ProductDetails {
     constructor(productId, dataSource) {
@@ -32,9 +32,11 @@ export default class ProductDetails {
             this.product.quantity = 1;
             this.product.totalPrice = this.product.FinalPrice * this.product.quantity;
             productsList.push(this.product);
+            alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
         } else {
             productsList[existingProductIndex].quantity += 1;
             productsList[existingProductIndex].totalPrice =  productsList[existingProductIndex].FinalPrice *  productsList[existingProductIndex].quantity;
+            alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
         }
 
         setLocalStorage("so-cart", productsList);

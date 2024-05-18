@@ -272,7 +272,20 @@ button {
   font-size: 1.5rem;
 }
 
-.form{
+.checkout-button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem 0;
+  text-decoration: none;
+}
+.hide {
+  display: none;
+}
+
+.form {
   display: flex;
 }
 
@@ -310,17 +323,30 @@ input[type="submit"] {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
-.orderSummary{
+.orderSummary {
   margin: 1.5rem 3rem 40rem 3rem;
   width: 90%;
-  border: .15rem solid var(--primary-color);
+  border: 0.15rem solid var(--primary-color);
   padding: 0 2rem 2rem;
   font-size: 1.2rem;
 }
 
-.orderSummary h3{
+.orderSummary h3 {
   padding: 0;
   padding-bottom: 2rem;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  padding: 0 1rem;
+  font-weight: bold;
+}
+
+.alert span {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {

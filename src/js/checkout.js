@@ -8,7 +8,13 @@ checkOut.init();
 
 const submitButton = document.querySelector("#submitButton");
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-
+  e.preventDefault();
+  const myForm = document.forms["checkout-form"];
+  const chk_status = myForm.checkValidity();
+  myForm.reportValidity();
+  if (chk_status) {
     checkOut.checkout();
+    location.assign("/checkout/success.html");
+    localStorage.clear();
+  }
 });

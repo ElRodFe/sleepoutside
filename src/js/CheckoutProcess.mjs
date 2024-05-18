@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs"
 
 const externalServices = new ExternalServices();
@@ -39,7 +39,6 @@ export default class CheckoutProcess {
     }
   
     displayOrderTotals() {
-      // once the totals are all calculated display them in the order summary page
       const st = document.createElement("p");
       const sp = document.createElement("p");
       const t = document.createElement("p");
@@ -73,6 +72,10 @@ export default class CheckoutProcess {
           const response = await externalServices.checkOut(json);
           console.log(response);
       } catch (error) {
+        removeAllAlerts();
+        for (let message in err.message) {
+          alertMessage(err.message[message]);
+        }
           console.log(error);
       }
   }
