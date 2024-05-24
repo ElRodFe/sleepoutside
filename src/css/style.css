@@ -85,13 +85,26 @@ header {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
 /* utility classes */
 .highlight {
   color: var(--tertiary-color);
+}
+
+.checkout-button {
+  text-decoration: none;
+  max-width: 200px;
+  padding: 0.5em 2em;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  color: white;
+  margin: 2px;
+  display: block;
+  font-size: var(--large-font);
+  cursor: pointer;
 }
 
 button {
@@ -237,7 +250,8 @@ button {
   grid-row: 1;
   grid-column: 4;
 }
-.cart-card__total{
+
+.cart-card__total {
   grid-row: 2;
   grid-column: 4;
 }
@@ -257,6 +271,7 @@ button {
   display: grid;
   padding: 10%;
 }
+
 .grid-card a {
   text-decoration: none;
   text-align: center;
@@ -270,6 +285,44 @@ button {
   display: none;
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+/* checkout page*/
+
+#checkout-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form {
+  grid-column: 1/2;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+fieldset {
+  border-color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+input[type="month"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {

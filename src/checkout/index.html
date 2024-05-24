@@ -1,25 +1,53 @@
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
 
-    <title>Sleep Outside | Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <title>Sleep Outside | Checkout</title>
 
-  <body>
-    <header class="divider" id="main-header"></header>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/js/checkout.js"></script>
+</head>
 
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-    </main>
+<body>
+  <header class="divider" id="main-header"></header>
 
-    <footer id="footer"></footer>
-  </body>
+  <main class="divider" id="checkout-main">
+    <section class="products">
+      <h2>Review & Place your Order</h2>
+    </section>
+    <form name="checkout-form" class="checkout-form">
+      <fieldset class="fieldset">
+        <legend>Personal Info</legend>
+
+        <label>First Name:<input type="text" id="firstName" name="firstName" required></label>
+        <label>Last Name:<input type="text" id="lastName" name="lastName" required></label>
+        <label>Street Address:<input type="text" id="streetAddress" name="streetAddress" required></label>
+        <label>City:<input type="text" id="city" name="city" required></label>
+        <label>State:<input type="text" id="state" name="state" required></label>
+        <label>Zip Code:<input type="number" id="zipCode" name="zipCode" required></label>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Payment Info</legend>
+
+        <label>Credit Card Number:<input type="text" id="ccNumber" name="ccNumber" required pattern="\d{16}"></label>
+        <label>Expiration Date:<input type="month" id="expDate" name="expDate" required></label>
+        <label>Security Code:<input type="text" id="securityCode" name="securityCode" required pattern="\d{3}"></label>
+      </fieldset>
+
+      <input type="submit" value="Checkout" id="submitButton">
+    </form>
+    <div class="orderSummary">
+      <h3>Order Summary:</h3>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+</body>
+
 </html>

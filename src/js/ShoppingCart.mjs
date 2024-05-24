@@ -1,8 +1,9 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
+    <span id="${item.Id}">x</span>
       <img
         src="${item.Images.PrimaryMedium}"
         alt="${item.Name}"
@@ -45,5 +46,18 @@ export default class ShoppingCart {
       document.querySelector(".cart-footer-hide").style.display = "block";
 
     }
+  }
+
+  removeItem(itemID) {
+    let productsList = getLocalStorage("so-cart");
+
+    const productIndex = productsList.findIndex(item => item.Id === itemID);
+
+    if (productIndex !== -1) {
+      productsList.splice(productIndex, 1);
+    }
+
+    setLocalStorage("so-cart", productsList);
+    this.renderCart();
   }
 }
